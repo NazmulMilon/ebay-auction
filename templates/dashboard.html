@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+
+{% block main_content %}
+
+    {% if not request.user.is_admin %}
+        {% include 'item_gallery.html' %}
+    {% endif %}
+
+    {% if request.user.is_admin %}
+{#        <!-- BUTTON: Create Auction Button -->#}
+{#        <div class="container-fluid  ">#}
+{#            <div class="ml-auto mb-0 mr-3 d-flex#}
+{#            justify-content-end">#}
+{#                <a href="{% url 'auction:create-auction' %}"#}
+{#                   class="btn btn-outline-black btn-sm waves-button#}
+{#                   waves-effect"#}
+{#                   style="font-size: 15px;">#}
+{#                    <i class="fas fa-plus-circle"></i> Create Auction#}
+{#                </a>#}
+{#            </div>#}
+{#            <!-- BUTTON: Create Auction Button -->#}
+
+            <!-- Section: Intro -->
+            <section class="mt-md-4 pt-md-2 mb-5 pb-4">
+
+                <!-- Grid row -->
+                <div class="row d-flex justify-content-center">
+
+                    <!-- Grid column -->
+                    <div class="col-xl-5 col-md-6 mb-xl-0 mb-4" >
+
+                        <!-- Card -->
+                        <div class="card card-cascade cascading-admin-card d-flex justify-content-center align-items-center"
+                             style="height: 333px;">
+
+                            <!-- Card Data -->
+                            <div class="admin-up" >
+                          
+                               
+                            </div>
+
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade d-flex justify-content-center align-items-center">
+                                <div class="data text-center mt-3 ">
+                                    <p class="text-uppercase"
+                                       style="font-size: 20px ">
+                                        Running Auction</p>
+                                    <h4 class="font-weight-bold dark-grey-text">
+                                        {{ running_auctions_count }}</h4>
+                                        <p class="card-text">Total number auction
+                                            ({{ total_auctions }})
+                                        </p>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-xl-5 col-md-6 mb-xl-0 mb-4" id="a">
+
+                        <!-- Card -->
+                        <div class="card card-cascade cascading-admin-card"
+                             style="height: 333px; weight:52px">
+
+                            <!-- Card Data -->
+                            <div class="admin-up">
+                                
+                                
+                            </div>
+
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade d-flex justify-content-center align-items-center">
+                                <div class="data text-center mt-2 ">
+                                    <p class="text-uppercase"
+                                       style="font-size: 20px">Running
+                                        Auctions<br>
+                                        Value</p>
+                                    <h4 class="font-weight-bold dark-grey-text">
+                                        ${{ running_auctions_total_value }}</h4>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- Card -->
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </section>
+            <!-- Section: Intro -->
+
+    
+        </div>
+    {% endif %}
+{% endblock %}
