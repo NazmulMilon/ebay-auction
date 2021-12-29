@@ -7,30 +7,12 @@ from django.utils.text import slugify
 from authentication.models import User
 
 
-# class AuditTrail(models.Model):
-#     hashed_id = models.CharField(null=True, blank=True, max_length=16, unique=True, db_index=True)
-
-#     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
-#     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True)
-#     is_active = models.BooleanField(default=True)
-
-#     class Meta:
-#         abstract = True
-
-#     def save(self, *args, **kwargs):
-#         if not self.pk:
-#             # For each object a new unique hashed id will be generated.
-#             self.hashed_id = uuid.uuid4().hex[16]
-
-#         super().save(*args, **kwargs)
-
-
 class Product(models.Model):
     """
     Auction Product model: detail info of a auction item.
 
     """
-    hashed_id = models.CharField(null=True, blank=True, max_length=16, unique=True, db_index=True)
+    hashed_id = models.CharField(null=True, blank=True, max_length=16, db_index=True)
 
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated_at = models.DateTimeField(auto_now_add=False, auto_now=True)

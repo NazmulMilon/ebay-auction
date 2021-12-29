@@ -10,7 +10,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         null=True,
         blank=True,
         max_length=16,
-        unique=True
+        
     )
     name = models.CharField(max_length=256)
     email = models.EmailField(unique=True, null=False, blank=False)
